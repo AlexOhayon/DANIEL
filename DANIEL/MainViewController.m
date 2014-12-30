@@ -29,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *unlockButton;
+@property (weak, nonatomic) IBOutlet UISwitch *autoDetectionSwitch;
 
 @end
 
@@ -40,9 +41,6 @@
     if ([[AVCaptureDevice devices] count] > 0)
         [self initCamera];
     
-    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(focusAndExposeTap:)];
-    [self.view addGestureRecognizer:tapGesture];
-    
     self.unlockButton.layer.cornerRadius = 75;
     // Do any additional setup after loading the view.
     
@@ -53,6 +51,32 @@
 
 }
 
+- (IBAction)autoDetectionSwitch:(id)sender {
+    if (self.autoDetectionSwitch.isOn){
+        [self autodetect];
+    }
+}
+
+-(void)autodetect{
+    if (self.autoDetectionSwitch.isOn){
+    [self captureImageWithCompletionHandler:^(bool success, UIImage * image){
+        
+        [[Request instance] verifyImage:image withAlertView:NO withCompletion:^(bool success, NSDictionary *reply) {
+            
+            if ([reply[@"allowed" ] isEqualToString:@"true"]){
+                [[[UIAlertView alloc]initWithTitle:@"Access Allowed" message:[NSString stringWithFormat: @"The door has been opened for %@", reply[@"allowed"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                [self.autoDetectionSwitch setOn:NO animated:YES];
+            }
+            else {
+                [self autodetect];
+            }
+            //self.unlockButton.hidden=NO;
+            
+        }];
+        
+    }];
+    }
+}
 
 -(void)initCamera
 {
@@ -181,11 +205,10 @@
     
     //self.imageView.hidden=NO;
     //self.imageView.backgroundColor = [UIColor blueColor];
-    UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"Checking Access" message:[NSString stringWithFormat: @"Waiting for approval"] delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-        [alertview show];
+
         
-        [[Request instance] verifyImage:image withCompletion:^(bool success, NSDictionary *reply) {
-            [alertview dismissWithClickedButtonIndex:0 animated:NO];
+        [[Request instance] verifyImage:image withAlertView:YES withCompletion:^(bool success, NSDictionary *reply) {
+            //[alertview dismissWithClickedButtonIndex:0 animated:NO];
             
             if ([reply[@"allowed" ] isEqualToString:@"true"]){
                 [[[UIAlertView alloc]initWithTitle:@"Access Allowed" message:[NSString stringWithFormat: @"The door has been opened for %@", reply[@"allowed"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];

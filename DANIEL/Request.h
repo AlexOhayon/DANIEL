@@ -15,9 +15,8 @@
 
 + (instancetype)instance;
 
--(void)addUserWithImage:(UIImage *)image withName:(NSString*) name withCompletion:(void(^)(bool success, NSDictionary *reply))completion;
--(void)verifyImage:(UIImage *)image withCompletion:(void(^)(bool success, NSDictionary *reply))completion;
+-(void)addUserWithImage:(UIImage *)image withName:(NSString*) name withAlertView:(BOOL)alertview withCompletion:(void(^)(bool success, NSDictionary *reply))completion;
+-(void)verifyImage:(UIImage *)image withAlertView:(BOOL)alertview withCompletion:(void(^)(bool success, NSDictionary *reply))completion;
 
--(UIImage *)blurImage:(UIImage *)imageToBlur;
 
 @end

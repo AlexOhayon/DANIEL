@@ -13,9 +13,6 @@
 		AC0915D01A52C6E4006C3F07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0915CF1A52C6E4006C3F07 /* Images.xcassets */; };
 		AC0915D31A52C6E4006C3F07 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0915D11A52C6E4006C3F07 /* LaunchScreen.xib */; };
 		AC0915DF1A52C6E4006C3F07 /* DANIELTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0915DE1A52C6E4006C3F07 /* DANIELTests.m */; };
-		AC0915F11A52C89F006C3F07 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0915F01A52C89F006C3F07 /* MenuViewController.m */; };
-		AC0915F41A52C8AC006C3F07 /* AddUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0915F31A52C8AC006C3F07 /* AddUserViewController.m */; };
-		AC0915F71A52C8CC006C3F07 /* DetectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0915F61A52C8CC006C3F07 /* DetectUserViewController.m */; };
 		AC0915FB1A52D18A006C3F07 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0915F81A52D18A006C3F07 /* icon@2x.png */; };
 		AC0915FC1A52D18A006C3F07 /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0915F91A52D18A006C3F07 /* icon@3x.png */; };
 		AC0915FD1A52D18A006C3F07 /* launchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0915FA1A52D18A006C3F07 /* launchImage.png */; };
@@ -31,8 +28,8 @@
 		AC0916141A52EBB4006C3F07 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC09160B1A52EBB3006C3F07 /* QuartzCore.framework */; };
 		AC0916151A52EBB4006C3F07 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC09160C1A52EBB3006C3F07 /* Security.framework */; };
 		AC0916161A52EBB4006C3F07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC09160D1A52EBB3006C3F07 /* SystemConfiguration.framework */; };
-		AC0916191A53030C006C3F07 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0916181A53030C006C3F07 /* UIImage+ImageEffects.m */; };
 		AC09161B1A530373006C3F07 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = AC09161A1A530373006C3F07 /* background.png */; };
+		AC9E921F1A536A8F00283691 /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E921E1A536A8F00283691 /* lock@2x.png */; };
 		ACAB4B7F1A5329DF0054C407 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAB4B7E1A5329DF0054C407 /* MainViewController.m */; };
 		ACAB4B811A5339850054C407 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAB4B801A5339850054C407 /* lock.png */; };
 		ACAB4B831A5343DE0054C407 /* squarePNG.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAB4B821A5343DE0054C407 /* squarePNG.png */; };
@@ -60,12 +57,6 @@
 		AC0915D81A52C6E4006C3F07 /* DANIELTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DANIELTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0915DD1A52C6E4006C3F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0915DE1A52C6E4006C3F07 /* DANIELTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DANIELTests.m; sourceTree = "<group>"; };
-		AC0915EF1A52C89F006C3F07 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		AC0915F01A52C89F006C3F07 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		AC0915F21A52C8AC006C3F07 /* AddUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserViewController.h; sourceTree = "<group>"; };
-		AC0915F31A52C8AC006C3F07 /* AddUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserViewController.m; sourceTree = "<group>"; };
-		AC0915F51A52C8CC006C3F07 /* DetectUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectUserViewController.h; sourceTree = "<group>"; };
-		AC0915F61A52C8CC006C3F07 /* DetectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectUserViewController.m; sourceTree = "<group>"; };
 		AC0915F81A52D18A006C3F07 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		AC0915F91A52D18A006C3F07 /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
 		AC0915FA1A52D18A006C3F07 /* launchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage.png; sourceTree = "<group>"; };
@@ -82,9 +73,8 @@
 		AC09160B1A52EBB3006C3F07 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AC09160C1A52EBB3006C3F07 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AC09160D1A52EBB3006C3F07 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		AC0916171A53030B006C3F07 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		AC0916181A53030C006C3F07 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		AC09161A1A530373006C3F07 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		AC9E921E1A536A8F00283691 /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
 		ACAB4B7D1A5329DF0054C407 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		ACAB4B7E1A5329DF0054C407 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		ACAB4B801A5339850054C407 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
@@ -156,6 +146,7 @@
 				AC0915D11A52C6E4006C3F07 /* LaunchScreen.xib */,
 				AC0915EE1A52C861006C3F07 /* ViewControllers */,
 				AC0915CF1A52C6E4006C3F07 /* Images.xcassets */,
+				AC9E921E1A536A8F00283691 /* lock@2x.png */,
 				ACAB4B801A5339850054C407 /* lock.png */,
 				AC0915F81A52D18A006C3F07 /* icon@2x.png */,
 				AC0915F91A52D18A006C3F07 /* icon@3x.png */,
@@ -167,8 +158,6 @@
 				AC0915C21A52C6E4006C3F07 /* Supporting Files */,
 				AC0916021A52E012006C3F07 /* Request.h */,
 				AC0916031A52E012006C3F07 /* Request.m */,
-				AC0916171A53030B006C3F07 /* UIImage+ImageEffects.h */,
-				AC0916181A53030C006C3F07 /* UIImage+ImageEffects.m */,
 			);
 			path = DANIEL;
 			sourceTree = "<group>";
@@ -202,12 +191,6 @@
 		AC0915EE1A52C861006C3F07 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC0915EF1A52C89F006C3F07 /* MenuViewController.h */,
-				AC0915F01A52C89F006C3F07 /* MenuViewController.m */,
-				AC0915F21A52C8AC006C3F07 /* AddUserViewController.h */,
-				AC0915F31A52C8AC006C3F07 /* AddUserViewController.m */,
-				AC0915F51A52C8CC006C3F07 /* DetectUserViewController.h */,
-				AC0915F61A52C8CC006C3F07 /* DetectUserViewController.m */,
 				ACAB4B7D1A5329DF0054C407 /* MainViewController.h */,
 				ACAB4B7E1A5329DF0054C407 /* MainViewController.m */,
 			);
@@ -301,6 +284,7 @@
 				ACAB4B831A5343DE0054C407 /* squarePNG.png in Resources */,
 				ACAB4B811A5339850054C407 /* lock.png in Resources */,
 				AC0915FC1A52D18A006C3F07 /* icon@3x.png in Resources */,
+				AC9E921F1A536A8F00283691 /* lock@2x.png in Resources */,
 				AC0915D31A52C6E4006C3F07 /* LaunchScreen.xib in Resources */,
 				AC0915D01A52C6E4006C3F07 /* Images.xcassets in Resources */,
 			);
@@ -321,11 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0915C81A52C6E4006C3F07 /* AppDelegate.m in Sources */,
-				AC0915F71A52C8CC006C3F07 /* DetectUserViewController.m in Sources */,
-				AC0916191A53030C006C3F07 /* UIImage+ImageEffects.m in Sources */,
 				ACAB4B7F1A5329DF0054C407 /* MainViewController.m in Sources */,
-				AC0915F41A52C8AC006C3F07 /* AddUserViewController.m in Sources */,
-				AC0915F11A52C89F006C3F07 /* MenuViewController.m in Sources */,
 				AC0915C51A52C6E4006C3F07 /* main.m in Sources */,
 				AC0916041A52E012006C3F07 /* Request.m in Sources */,
 			);

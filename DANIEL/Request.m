@@ -8,7 +8,6 @@
 
 #import "Request.h"
 #import <Parse/Parse.h>
-#import "UIImage+ImageEffects.h"
 
 @implementation Request
 
@@ -32,9 +31,9 @@
 
 
 
--(void)addUserWithImage:(UIImage *)image withName:(NSString*) name withCompletion:(void(^)(bool success, NSDictionary *reply))completion{
+-(void)addUserWithImage:(UIImage *)image withName:(NSString*) name withAlertView:(BOOL)alertview withCompletion:(void(^)(bool success, NSDictionary *reply))completion{
     
-    [self uploadingPicture:image withCompletion:^(bool success, NSString *url) {
+    [self uploadingPicture:image withAlertView:alertview withCompletion:^(bool success, NSString *url) {
         if (success){
             
             NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -48,14 +47,20 @@
 }
 
 
--(void)verifyImage:(UIImage *)image withCompletion:(void(^)(bool success, NSDictionary *reply))completion{
+-(void)verifyImage:(UIImage *)image withAlertView:(BOOL)alertview withCompletion:(void(^)(bool success, NSDictionary *reply))completion{
     
-    [self uploadingPicture:image withCompletion:^(bool success, NSString *url) {
+    [self uploadingPicture:image withAlertView:alertview withCompletion:^(bool success, NSString *url) {
         if (success){
+            UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"Checking Access" message:[NSString stringWithFormat: @"Waiting for approval"] delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+            [alertview show];
+            
             NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                          url, @"img_url",
                                          nil];
             NSDictionary *reply=[self postRequest:@"verify" andWithDictionary:requestData];
+            
+            [alertview dismissWithClickedButtonIndex:0 animated:NO];
+            
             completion(YES,reply);
         }
     }];
@@ -66,12 +71,13 @@
 
 
 
--(void)uploadingPicture:(UIImage *)image withCompletion:(void(^)(bool success,NSString *url))handler{
+-(void)uploadingPicture:(UIImage *)image withAlertView:(BOOL)alertview withCompletion:(void(^)(bool success,NSString *url))handler{
     UIAlertView *percentageAlertView;
     UIAlertView *errorAlertView;
     
     percentageAlertView = [[UIAlertView alloc]initWithTitle:@"Uploading Image" message:@"0 %" delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    [percentageAlertView show];
+    if (alertview)
+        [percentageAlertView show];
     errorAlertView = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Please Retry" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     //UIImage * imageToSend = [[ImageService instance]compressImageForUpload:self.photoImageView.image];
@@ -150,13 +156,6 @@
     }
     
     return imageToCompress;
-}
-
-
-
--(UIImage *)blurImage:(UIImage *)imageToBlur{
-    UIColor *tintColor = [UIColor colorWithWhite:0.6 alpha:0.62];
-    return [imageToBlur applyBlurWithRadius:10 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
 }
 
 

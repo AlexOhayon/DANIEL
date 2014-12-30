@@ -114,11 +114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/Request.m"
-            timestampString = "441648093.20741"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-uploadingPicture:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -146,11 +146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/Request.m"
-            timestampString = "441648093.20741"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-uploadingPicture:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -178,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/Request.m"
-            timestampString = "441648093.20741"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-postRequest:andWithDictionary:"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/Request.m"
-            timestampString = "441648093.20741"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-postRequest:andWithDictionary:"
             landmarkType = "5">
          </BreakpointContent>
@@ -242,11 +242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/Request.m"
-            timestampString = "441648093.20741"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-uploadingPicture:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -258,11 +258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/MainViewController.m"
-            timestampString = "441664928.4681"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "-unlockButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -274,11 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/MainViewController.m"
-            timestampString = "441664928.4681"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "-unlockButton:"
             landmarkType = "5">
             <Locations>
@@ -316,15 +316,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/Request.m"
-            timestampString = "441661090.490061"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "-postRequest:andWithDictionary:"
             landmarkType = "5">
          </BreakpointContent>
@@ -336,11 +336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/MainViewController.m"
-            timestampString = "441664928.4681"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
             landmarkName = "-drawFaces:forVideoBox:orientation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -352,11 +352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/MainViewController.m"
-            timestampString = "441664928.4681"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "-drawFaces:forVideoBox:orientation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -368,12 +368,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DANIEL/MainViewController.m"
-            timestampString = "441664928.4681"
+            timestampString = "441674352.785679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
             landmarkName = "-captureOutput:didOutputSampleBuffer:fromConnection:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DANIEL/MainViewController.m"
+            timestampString = "441674489.989435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-autodetect"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
