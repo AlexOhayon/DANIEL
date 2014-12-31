@@ -383,6 +383,7 @@
         while ( !featureLayer && (currentSublayer < sublayersCount) ) {
             CALayer *currentLayer = [sublayers objectAtIndex:currentSublayer++];
             if ( [[currentLayer name] isEqualToString:@"FaceLayer"] ) {
+                oldFrame = featureLayer.frame;
                 featureLayer = currentLayer;
                 [currentLayer setHidden:NO];
             }
@@ -396,7 +397,12 @@
             [previewLayer addSublayer:featureLayer];
             featureLayer = nil;
         }
-        [featureLayer setFrame:faceRect];
+
+        // don't move it unless center has moved a bit
+        float kUpdateThreshold = 5.0f;
+        if (distanceBetweenCentersOfFrames(oldFrame, faceRect) > kUpdateThreshold) {
+            [featureLayer setFrame:faceRect];
+        }
         
         /*switch (orientation) {
             case UIDeviceOrientationPortrait:
