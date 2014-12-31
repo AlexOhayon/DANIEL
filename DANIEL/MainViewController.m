@@ -130,7 +130,7 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
             //[checkingAlertview dismissWithClickedButtonIndex:0 animated:NO];
             
             if ([reply[@"allowed" ] isEqualToNumber:[NSNumber numberWithBool:YES]]){
-                NSString *message = [NSString stringWithFormat: @"Hello %@, The door has been opened", reply[@"name"]];
+                NSString *message = [NSString stringWithFormat: @"Face recognized, Welcome %@", reply[@"name"]];
                 [[[UIAlertView alloc]initWithTitle:@"Access Allowed" message: message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
                 [self textToSpeech:message];
             }
