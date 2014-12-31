@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MainViewController (){
+@interface MainViewController(){
     AVCaptureDevice *videoDevice;
     AVCaptureDeviceInput *videoDeviceInput;
     AVCaptureStillImageOutput *stillImageOutput;
@@ -31,12 +31,33 @@
 @property (weak, nonatomic) IBOutlet UIButton *unlockButton;
 @property (weak, nonatomic) IBOutlet UISwitch *autoDetectionSwitch;
 
+@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property (strong, nonatomic) NSDictionary *myBeaconData;
+@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Create a NSUUID object
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
+    
+    // Initialize the Beacon Region
+    self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                  major:1
+                                                                  minor:1
+                                                             identifier:@"Estimotes"];
+    
+    // Get the beacon data to advertise
+    self.myBeaconData = [self.myBeaconRegion peripheralDataWithMeasuredPower:nil];
+    
+    // Start the peripheral manager
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
+                                                                     queue:nil
+                                                                   options:nil];
     
     if ([[AVCaptureDevice devices] count] > 0)
         [self initCamera];
@@ -50,6 +71,24 @@
     square = [UIImage imageNamed:@"squarePNG.png"];
 
 }
+
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
+{
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
+    {
+        // Bluetooth is on
+        
+        // Start broadcasting
+        [self.peripheralManager startAdvertising:self.myBeaconData];
+    }
+    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
+    {
+        // Bluetooth isn't on. Stop broadcasting
+        [self.peripheralManager stopAdvertising];
+    }
+    
+}
+
 
 - (IBAction)autoDetectionSwitch:(id)sender {
     if (self.autoDetectionSwitch.isOn){
