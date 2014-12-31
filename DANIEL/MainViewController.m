@@ -40,6 +40,9 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
     CIDetector *faceDetector;
     
     UIImage *square;
+    AVSpeechSynthesizer *synth;
+    
+    UIAlertView *checkingAlertview;
 }
 
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
@@ -52,6 +55,8 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
 @property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
 @property (strong, nonatomic) NSDictionary *myBeaconData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+
+
 
 @end
 
@@ -88,6 +93,13 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
  
     square = [UIImage imageNamed:@"squarePNG.png"];
 
+    synth = [[AVSpeechSynthesizer alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(displayCheckingAlertView:)
+                                                 name:@"checkingAlertviewNotif"
+                                               object:nil];
+    
 }
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
@@ -108,10 +120,55 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
 }
 
 
+- (IBAction)unlockButton:(id)sender {
+    self.unlockButton.hidden =YES;
+    [self captureImageWithCompletionHandler:^(bool success, UIImage * image){
+        [self stopCamera];
+        
+        [[Request instance] verifyImage:image withAlertView:YES withCompletion:^(bool success, NSDictionary *reply) {
+        
+            //[checkingAlertview dismissWithClickedButtonIndex:0 animated:NO];
+            
+            if ([reply[@"allowed" ] isEqualToNumber:[NSNumber numberWithBool:YES]]){
+                NSString *message = [NSString stringWithFormat: @"Hello %@, The door has been opened", reply[@"name"]];
+                [[[UIAlertView alloc]initWithTitle:@"Access Allowed" message: message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                [self textToSpeech:message];
+            }
+            else{
+                NSString *message = [NSString stringWithFormat: @"The door is locked"];
+                [[[UIAlertView alloc]initWithTitle:@"Access Denied" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                [self textToSpeech:message];
+            }
+            self.unlockButton.hidden=NO;
+            [self relaunchCamera];
+        }];
+        
+    }];
+}
+
+-(void)displayCheckingAlertView:(NSNotification *) notification{
+    checkingAlertview=[[UIAlertView alloc]initWithTitle:@"Checking Access" message:[NSString stringWithFormat: @"Waiting for approval"] delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [checkingAlertview show];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //[self relaunchCamera];
+}
+
+
 - (IBAction)autoDetectionSwitch:(id)sender {
     if (self.autoDetectionSwitch.isOn){
         [self autodetect];
     }
+}
+
+-(void)textToSpeech:(NSString *)message{
+    AVSpeechUtterance *utterance = [AVSpeechUtterance
+                                    speechUtteranceWithString:message];
+    utterance.rate = AVSpeechUtteranceMinimumSpeechRate;
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
+    [synth speakUtterance:utterance];
 }
 
 -(void)autodetect{
@@ -245,42 +302,6 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)unlockButton:(id)sender {
-    self.unlockButton.hidden =YES;
-    [self captureImageWithCompletionHandler:^(bool success, UIImage * image){
-        [self stopCamera];
-    
-    //UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
-    //[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
-    //UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    
-    //UIGraphicsEndImageContext();
-    
-    //self.imageView.image= img;
-    
-    //self.imageView.hidden=NO;
-    //self.imageView.backgroundColor = [UIColor blueColor];
-
-        
-        [[Request instance] verifyImage:image withAlertView:YES withCompletion:^(bool success, NSDictionary *reply) {
-            //[alertview dismissWithClickedButtonIndex:0 animated:NO];
-            
-            if ([reply[@"allowed" ] isEqualToString:@"true"]){
-                [[[UIAlertView alloc]initWithTitle:@"Access Allowed" message:[NSString stringWithFormat: @"The door has been opened for %@", reply[@"allowed"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
-            }
-            else
-                [[[UIAlertView alloc]initWithTitle:@"Access Denied" message:[NSString stringWithFormat: @"The door is locked"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
-            self.unlockButton.hidden=NO;
-        }];
-        
-    }];
-}
-
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [self relaunchCamera];
 }
 
 /*

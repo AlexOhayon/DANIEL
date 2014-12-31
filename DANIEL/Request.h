@@ -11,6 +11,8 @@
 
 @interface Request : NSObject{
     NSDateFormatter *dateFormatter;
+    UIAlertView *checkingAlertview;
+    UIAlertView *percentageAlertView;
 }
 
 + (instancetype)instance;

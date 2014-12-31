@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e8L-yq-x3s">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -47,13 +48,13 @@
                                     <action selector="unlockButton:" destination="e8L-yq-x3s" eventType="touchUpInside" id="twP-k9-vOF"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygz-BB-OIZ">
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygz-BB-OIZ">
                                 <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                 <connections>
                                     <action selector="autoDetectionSwitch:" destination="e8L-yq-x3s" eventType="valueChanged" id="SlB-Q0-Cxe"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Detection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1K-Jj-0wL">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Detection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1K-Jj-0wL">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -91,16 +92,16 @@
                                 <exclude reference="L1K-Jj-0wL"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="MOZ-VF-dyP"/>
+                                <exclude reference="PdN-cw-eX7"/>
+                                <exclude reference="1aR-TK-scG"/>
+                                <exclude reference="fwS-Zk-Yb1"/>
+                                <exclude reference="lr0-8Z-QbK"/>
                                 <exclude reference="Ucx-Nv-FRZ"/>
                                 <exclude reference="eB8-Gn-wvE"/>
                                 <exclude reference="mrP-cn-J5r"/>
                                 <exclude reference="oHQ-bt-uG3"/>
                                 <exclude reference="sOZ-f6-Pv2"/>
-                                <exclude reference="MOZ-VF-dyP"/>
-                                <exclude reference="1aR-TK-scG"/>
-                                <exclude reference="fwS-Zk-Yb1"/>
-                                <exclude reference="lr0-8Z-QbK"/>
-                                <exclude reference="PdN-cw-eX7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -111,16 +112,16 @@
                                 <include reference="L1K-Jj-0wL"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="MOZ-VF-dyP"/>
+                                <include reference="PdN-cw-eX7"/>
+                                <include reference="1aR-TK-scG"/>
+                                <include reference="fwS-Zk-Yb1"/>
+                                <include reference="lr0-8Z-QbK"/>
                                 <include reference="Ucx-Nv-FRZ"/>
                                 <include reference="eB8-Gn-wvE"/>
                                 <include reference="mrP-cn-J5r"/>
                                 <include reference="oHQ-bt-uG3"/>
                                 <include reference="sOZ-f6-Pv2"/>
-                                <include reference="MOZ-VF-dyP"/>
-                                <include reference="1aR-TK-scG"/>
-                                <include reference="fwS-Zk-Yb1"/>
-                                <include reference="lr0-8Z-QbK"/>
-                                <include reference="PdN-cw-eX7"/>
                             </mask>
                         </variation>
                     </view>

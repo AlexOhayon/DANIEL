@@ -51,17 +51,20 @@
     
     [self uploadingPicture:image withAlertView:alertview withCompletion:^(bool success, NSString *url) {
         if (success){
-            UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"Checking Access" message:[NSString stringWithFormat: @"Waiting for approval"] delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-            [alertview show];
-            
-            NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                         url, @"img_url",
-                                         nil];
-            NSDictionary *reply=[self postRequest:@"verify" andWithDictionary:requestData];
-            
-            [alertview dismissWithClickedButtonIndex:0 animated:NO];
-            
+
+                
+                NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                             url, @"img_url",
+                                             nil];
+                NSDictionary *reply=[self postRequest:@"verify" andWithDictionary:requestData];
+                
+                //completion(YES,reply);
+            //sleep(5);
+            [percentageAlertView dismissWithClickedButtonIndex:0 animated:NO];
+
             completion(YES,reply);
+
+
         }
     }];
 }
@@ -70,9 +73,12 @@
 
 
 
+-(void)displayCheckingAlertView:(NSNotification *) notification{
+    checkingAlertview=[[UIAlertView alloc]initWithTitle:@"Checking Access" message:[NSString stringWithFormat: @"Waiting for approval"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [checkingAlertview show];
+}
 
 -(void)uploadingPicture:(UIImage *)image withAlertView:(BOOL)alertview withCompletion:(void(^)(bool success,NSString *url))handler{
-    UIAlertView *percentageAlertView;
     UIAlertView *errorAlertView;
     
     percentageAlertView = [[UIAlertView alloc]initWithTitle:@"Uploading Image" message:@"0 %" delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
@@ -90,7 +96,11 @@
     
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            [percentageAlertView dismissWithClickedButtonIndex:0 animated:0];
+ 
+
+            //[percentageAlertView dismissWithClickedButtonIndex:0 animated:0];
+            
+            //[self performSelectorOnMainThread:@selector(displayCheckingAlertView:) withObject:nil waitUntilDone:NO];
 
             NSString *urlForImage = imageFile.url;
             handler(YES,urlForImage);
@@ -106,6 +116,11 @@
     } progressBlock:^(int percentDone) {
         // Update your progress spinner here. percentDone will be between 0 and 100.
         percentageAlertView.message = [NSString stringWithFormat:@"%i %%", percentDone];
+        if(percentDone>=100){
+            percentageAlertView.title = @"Checking Access";
+            percentageAlertView.message = @"Waiting for approval";
+            [percentageAlertView show];
+        }
     }];
 }
 
