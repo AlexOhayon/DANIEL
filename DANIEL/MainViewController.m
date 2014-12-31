@@ -20,6 +20,14 @@ static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
     return distanceBetweenPoints(centerA, centerB);
 }
 
+static float distanceBetweenPoints(CGPoint pointA, CGPoint pointB);
+static float distanceBetweenPoints(CGPoint pointA, CGPoint pointB)
+{
+    float dx = (pointA.x - pointB.x);
+    float dy = (pointA.y - pointB.y);
+    return fabsf(sqrtf((dx * dx) + (dy * dy)));
+}
+
 @interface MainViewController(){
     AVCaptureDevice *videoDevice;
     AVCaptureDeviceInput *videoDeviceInput;
