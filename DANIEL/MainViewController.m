@@ -11,6 +11,14 @@
 #import "Request.h"
 #import <UIKit/UIKit.h>
 
+static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB);
+static float distanceBetweenCentersOfFrames(CGRect frameA, CGRect frameB)
+{
+    CGPoint centerA = CGPointMake(frameA.origin.x + (frameA.size.width / 2), frameA.origin.y + (frameA.size.height / 2));
+    CGPoint centerB = CGPointMake(frameB.origin.x + (frameB.size.width / 2), frameB.origin.y + (frameB.size.height / 2));
+    
+    return distanceBetweenPoints(centerA, centerB);
+}
 
 @interface MainViewController(){
     AVCaptureDevice *videoDevice;
@@ -380,6 +388,7 @@
         CALayer *featureLayer = nil;
         
         // re-use an existing layer if possible
+        CGRect oldFrame = CGRectZero;
         while ( !featureLayer && (currentSublayer < sublayersCount) ) {
             CALayer *currentLayer = [sublayers objectAtIndex:currentSublayer++];
             if ( [[currentLayer name] isEqualToString:@"FaceLayer"] ) {
